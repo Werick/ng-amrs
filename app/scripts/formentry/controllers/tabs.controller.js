@@ -163,7 +163,7 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069
           console.log('New Form Schema');
           console.log(formSchema);
 
-          FormentryService.createForm(formSchema, function(formlySchema){
+          // FormentryService.createForm(formSchema, function(formlySchema){
             // $scope.vm.formlyFields = formlySchema;
             // $scope.vm.tabs = $scope.vm.formlyFields;
             //
@@ -186,7 +186,7 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069
             //   }
             //
             //  });
-          });
+          // });
          });
 
        },1000);
