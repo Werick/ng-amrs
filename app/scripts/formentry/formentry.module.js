@@ -41,32 +41,36 @@
     formlyConfig.setType({
       name: 'customInput',
       extends: 'input',
-      apiCheck: {
-        templateOptions: formlyApiCheck.shape({
-          foo: formlyApiCheck.string.optional
-        })
-      }
+        controller: ['$scope', function($scope) {
+          $scope.options.data.getValidationMessage = getValidationMessage;
+
+          function getValidationMessage(key) {
+            var message = $scope.options.validation.messages[key];
+            if (message) {
+              return message($scope.fc.$viewValue, $scope.fc.$modelValue, $scope);
+            }
+          }
+        }]
+
     });
 
     formlyConfig.setType({
       name: 'datepicker',
-      extends: 'input',
-      apiCheck: {
-        templateOptions: formlyApiCheck.shape({
-          foo: formlyApiCheck.string.optional
-        })
-      }
+      extends: 'input',      
+      controller: ['$scope', function($scope) {
+        $scope.options.data.getValidationMessage = getValidationMessage;
+
+        function getValidationMessage(key) {
+          var message = $scope.options.validation.messages[key];
+          if (message) {
+            return message($scope.fc.$viewValue, $scope.fc.$modelValue, $scope);
+          }
+        }
+      }]
+
     });
 
-    formlyConfig.setType({
-      name: 'section',
-      extends: 'input',
-      apiCheck: {
-        templateOptions: formlyApiCheck.shape({
-          foo: formlyApiCheck.string.optional
-        })
-      }
-    });
+
   })
   .config(['dialogsProvider','$translateProvider',function(dialogsProvider,$translateProvider){
 		dialogsProvider.useBackdrop('static');
