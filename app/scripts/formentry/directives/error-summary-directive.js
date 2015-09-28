@@ -78,11 +78,12 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069
           return Object.keys(field.formControl.$error).map(function(error) {
             // note, this only works because the all the field types have been explicityly defined.
             // console.log('Erroorr', error);
-            // console.log('selected field label ', field.templateOptions.label)
+            console.log('selected field label ', field.templateOptions.label)
             var msg
             if(error === 'max')  msg = 'The maximum value allowed is ' + field.templateOptions.max;
             else if(error === 'min') msg = 'The minimum value allowed is ' + field.templateOptions.min;
             else msg = field.validation.messages[error]();
+
             return msg;
           }).join(', ');
         }
