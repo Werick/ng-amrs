@@ -54,6 +54,7 @@ module.exports = function (config) {
     'bower_components/angular-loading/angular-loading.js',
     'bower_components/ui-router-extras/release/ct-ui-router-extras.js',
     'bower_components/karma-read-json/karma-read-json.js',
+    'bower_components/angular-formentry/dist/scripts/angularFormentry.js',
     'bower_components/angular-mocks/angular-mocks.js',
     // endbower
       'app/scripts/**/*.module.js',

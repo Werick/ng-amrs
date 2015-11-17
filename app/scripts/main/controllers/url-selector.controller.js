@@ -12,11 +12,13 @@
   angular
     .module('ngAmrsApp')
     .controller('UrlSelectorCtrl', UrlSelectorCtrl);
-  UrlSelectorCtrl.$nject = ['$rootScope', '$scope', 'OpenmrsSettings', 'EtlRestServicesSettings', 'AuthService', '$state'];
+  UrlSelectorCtrl.$nject = ['$rootScope', '$scope', 'OpenmrsSettings', 'EtlRestServicesSettings', 'AuthService', '$state', 'CreateForm'];
 
-  function UrlSelectorCtrl($rootScope, $scope, OpenmrsSettings, EtlRestServicesSettings, AuthService, $state) {
+  function UrlSelectorCtrl($rootScope, $scope, OpenmrsSettings, EtlRestServicesSettings, AuthService, $state, CreateForm) {
 
     $scope.currentMode = '';
+    console.info('STUFF WORKS');
+    CreateForm.testForm();
 
     $scope.currentRestBaseUrl = '';
 
@@ -32,7 +34,7 @@
     $scope.addingUrl = false;
 
     $scope.addingEtlUrl = false;
-    
+
     //methods
     $scope.addUrlToList = addUrlToList;
     $scope.addEtlUrlToList = addEtlUrlToList;

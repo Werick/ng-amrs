@@ -10,11 +10,11 @@
     <div class="panel-heading" style=" cursor: pointer;" data-ng-click="isSummaryExpanded = !isSummaryExpanded">
       <span class="text-default" style="margin-left: 2px;"> Patient Summaries </span>
       <!--<button class="btn btn-default btn-sm pull-right">V</button>-->
-      <span class="label label-default pull-right" style="margin-right: 4px;" ng-show="isSummaryExpanded"> 
-        <span class="glyphicon glyphicon-menu-up"> </span> 
+      <span class="label label-default pull-right" style="margin-right: 4px;" ng-show="isSummaryExpanded">
+        <span class="glyphicon glyphicon-menu-up"> </span>
      </span>
       <span class="label label-default pull-right" style="margin-right: 4px;" ng-hide="isSummaryExpanded">
-        <span class="glyphicon glyphicon-menu-down"></span> 
+        <span class="glyphicon glyphicon-menu-down"></span>
      </span>
     </div>
     <div class="panel-body" collapse="!isSummaryExpanded" style="padding: 4px;">
@@ -51,7 +51,7 @@
   </div>
   <div data-ng-show='vm.isBusy'>
     <h2>
-        <img data-ng-show="vm.isBusy" data-ng-src="images/ajax-loader.gif" autofocus />Loading Form...
+        <img data-ng-show="vm.isBusy" data-ng-src="images/ajax-loader.gif" autofocus/>Loading Form...
       </h2>
   </div>
   <!-- Error messages Summary -->
@@ -74,10 +74,10 @@
     <div style="color:red;">{{vm.errorSubmit}}</div>
 
     <div style="text-align: center;">
-      <button type="button" class="btn btn-default" ng-click="vm.activateTab('prev')" ng-disabled="vm.isFirstTab()">&lt;&lt;</button>
-      <button type="submit" class="btn btn-primary submit-button" ng-click="vm.submit()" ng-disabled="vm.submittingForm">{{vm.submitLabel}}</button>
-      <button type="button" class="btn btn-default" ng-click="vm.cancel()" ng-disabled="vm.submittingForm">Cancel</button>
-      <button type="button" class="btn btn-default" ng-click="vm.activateTab('next')" ng-disabled="vm.isLastTab()">&gt;&gt;</button>
+      <button type="button" class="btn btn-default" data-ng-click="vm.activateTab('prev')" data-ng-disabled="vm.isFirstTab()">&lt;&lt;</button>
+      <button type="submit" class="btn btn-primary submit-button" data-ng-click="vm.submit($event)" data-ng-disabled="vm.submittingForm">{{vm.submitLabel}}</button>
+      <button type="button" class="btn btn-default" data-ng-click="vm.cancel()" data-ng-disabled="vm.submittingForm">Cancel</button>
+      <button type="button" class="btn btn-default" data-ng-click="vm.activateTab('next')" data-ng-disabled="vm.isLastTab()">&gt;&gt;</button>
     </div>
   </form>
 
@@ -153,19 +153,19 @@
       body {
         margin: 20px
       }
-      
+
       .formly-field {
         margin-bottom: 16px;
       }
-      
+
       .formly-error-summary {
         margin-bottom: 20px;
       }
-      
+
       .color-error {
         color: red;
       }
-      
+
       .color-success {
         color: green
       }

@@ -48,6 +48,8 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069, -W106
 
     $scope.$on('viewHivHistoricalSummary', viewHivHistoricalSummary);
 
+    var preventDoubleTap = false;
+
     function viewHivHistoricalSummary() {
       $scope.showHivHistoricalSummary = true;
     }
@@ -160,7 +162,19 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069, -W106
         });
     };
 
-    $scope.vm.submit = function() {
+    $scope.vm.submit = function($event) {
+      // timeout(function () {
+      //
+      // }, 1000);
+      if (preventDoubleTap === true) {
+        preventDoubleTap = false;
+        return;
+      }else {
+        preventDoubleTap = true;
+      }
+
+      $event.stopPropagation();
+
       $scope.vm.savedOrUpdated = true;
       var undisplayedTabs = [];
       angular.copy($scope.vm.tabs, undisplayedTabs);
