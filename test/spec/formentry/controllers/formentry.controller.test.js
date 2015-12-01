@@ -2,8 +2,8 @@
 jshint -W098, -W117, -W030
 */
 (function() {
-    'use strict';
-    describe('Controller: FormentryCtrl ', function(){
+  'use strict';
+  describe('Controller: FormentryCtrl ', function() {
       var controller;
       var scope;
       var encService;
@@ -18,8 +18,12 @@ jshint -W098, -W117, -W030
       var formsMetaData;
       var mockData;
       var currentLoadedFormService;
+      var utilService;
+      var loading;
+      var personAttributesRestService;
+      var anchorScroll;
 
-      beforeEach(function(){
+      beforeEach(function() {
         module('ngAmrsApp');
         module('app.openmrsRestServices');
         module('app.formentry');
@@ -27,7 +31,7 @@ jshint -W098, -W117, -W030
 
       });
 
-      beforeEach(inject(function($controller, $injector, $rootScope){
+      beforeEach(inject(function($controller, $injector, $rootScope) {
         scope = $rootScope.$new();
         translate = $injector.get('$translate');
         dialog = $injector.get('dialogs');
@@ -40,8 +44,12 @@ jshint -W098, -W117, -W030
         currentLoadedFormService = $injector.get('CurrentLoadedFormService');
         openmrsRestService = $injector.get('OpenmrsRestService');
         mockData = $injector.get('mockData');
+        utilService = $injector.get('UtilService');
+        loading = $injector.get('$loading');
+        personAttributesRestService = $injector.get('PersonAttributesRestService');
+        anchorScroll = $injector.get('$anchorScroll');
 
-        controller =$controller('FormentryCtrl', {
+        controller = $controller('FormentryCtrl', {
           $translate:translate,
           dialogs:dialog,
           $location:location,
@@ -53,40 +61,46 @@ jshint -W098, -W117, -W030
           OpenmrsRestService:openmrsRestService,
           $timeout:timeout,
           FormsMetaData:formsMetaData,
-          CurrentLoadedFormService: currentLoadedFormService
-          });
+          CurrentLoadedFormService: currentLoadedFormService,
+          UtilService:utilService,
+          $loading:loading,
+          PersonAttributesRestService:personAttributesRestService,
+          $anchorScroll:anchorScroll,
+        });
 
       }));
-      describe('Formetry controller unit tests', function(){
-        it('should test if tabs test working', function(){
+
+      describe('Formetry controller unit tests', function() {
+        it('should test if tabs test working', function() {
           expect('testing tabs ctr').to.equal('testing tabs ctr');
         });
 
-        it('should test if vm exists', function(){
+        it('should test if vm exists', function() {
           expect(scope.vm).to.exist;
           expect(scope.vm).to.be.an('object');
         });
 
-        it('vm.model should exist an object', function(){
+        it('vm.model should exist an object', function() {
           expect(scope.vm.model).to.exist;
           expect(scope.vm.model).to.be.an('object');
         });
 
-        it('vm.submitLabel should exist as a string', function(){
+        it('vm.submitLabel should exist as a string', function() {
           expect(scope.vm.submitLabel).to.exist;
           expect(scope.vm.submitLabel).to.be.an('string');
         });
 
-        it('vm.tabs should exist as an array object', function(){
+        it('vm.tabs should exist as an array object', function() {
           expect(scope.vm.tabs).to.exist;
           expect(scope.vm.tabs).to.be.an('array');
         });
 
-        it('Patient Should exist and be a property of the scope', function(){
+        it('Patient Should exist and be a property of the scope', function() {
           expect(scope.vm).to.have.property('patient');
         });
 
-        it('Should have submit and cancel methods within the controller', function(){
+        it('Should have submit and cancel methods within the controller',
+        function() {
           expect(scope.vm.submit).to.exist;
           expect(scope.vm.submit).to.be.an('function');
           expect(scope.vm).to.have.property('submit');
@@ -95,7 +109,6 @@ jshint -W098, -W117, -W030
           expect(scope.vm).to.have.property('cancel');
         });
       });
-
 
     });
 
