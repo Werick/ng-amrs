@@ -34,7 +34,7 @@ jshint -W098, -W117, -W030
       beforeEach(inject(function($controller, $injector, $rootScope) {
         scope = $rootScope.$new();
         translate = $injector.get('$translate');
-        dialog = $injector.get('dialogs');
+        // dialog = $injector.get('dialogs');
         location = $injector.get('$location');
         stateParams = $injector.get('$stateParams');
         state = $injector.get('$state');
@@ -51,7 +51,7 @@ jshint -W098, -W117, -W030
 
         controller = $controller('FormentryCtrl', {
           $translate:translate,
-          dialogs:dialog,
+          // dialogs:dialog,
           $location:location,
           $rootScope:scope,
           $stateParams:stateParams,
