@@ -148,12 +148,12 @@
         });
 
     }) .config(['$httpProvider', function($httpProvider) {
-        //$httpProvider.interceptors.push('LogToServerInterceptor');
+      //$httpProvider.interceptors.push('LogToServerInterceptor');
     }])
     .run(function($rootScope, $state, $location, OpenmrsRestService, OpenmrsSettings,
        EtlRestServicesSettings, UtilService) {
 
-      $rootScope.$on('$stateChangeStart',function(event, toState, toParams) {
+      $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
 
         //check whether selection of url base is required first
         var hasPersistedCurrentUrl = OpenmrsSettings.hasCoockiePersistedCurrentUrlBase() && EtlRestServicesSettings.hasCoockiePersistedCurrentUrlBase();
