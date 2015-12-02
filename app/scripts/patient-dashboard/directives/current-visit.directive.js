@@ -181,7 +181,7 @@ jshint -W003, -W026, -W117, -W098
                         
                      _.each(visitEncounters, function(encounter) {
                           var i = _.findIndex($scope.formsFilledStatus, function(entry) {
-                             return entry.encounterType === encounter.encounterType.uuid;
+                             return entry.encounterTypeUuid === encounter.encounterType.uuid;
                          });
                          if(i !== -1) {
                              $scope.formsFilledStatus[i].filled = true;
