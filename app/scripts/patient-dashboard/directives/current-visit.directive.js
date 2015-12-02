@@ -1,5 +1,5 @@
 /*
-jshint -W003, -W026, -W117, -W098
+jshint -W004, -W003, -W026, -W117, -W098
 */
 /*jscs:disable safeContextKeyword, requireDotNotation, requirePaddingNewLinesBeforeLineComments, requireTrailingComma*/
 (function() {
@@ -81,7 +81,7 @@ jshint -W003, -W026, -W117, -W098
         vService.saveVisit(payload, function success(response) {
           //Update state
           $scope.visitStarted = false;
-          $scope.currentVisit = initializeCurrentVisit()
+          $scope.currentVisit = initializeCurrentVisit();
           clearFormFilledStatus();
 
           //Void encounters
@@ -234,40 +234,43 @@ jshint -W003, -W026, -W117, -W098
         }
 
         _.each(visits, function(visit) {
-            if (today === formatted(visit.startDatetime)) {
-                  todayVisits.push(visit);
-              }
-           });
-           if(typeof callback === 'function') {
-               callback(todayVisits);
-           } else {
-               $log.debug('No callback function has been passed');
-           }
-       }, errorCallback);
-   }
+          if (today === formatted(visit.startDatetime)) {
+            todayVisits.push(visit);
+          }
+        });
 
-         //Format date
-         function getFormattedDate(date, format) {
-             if(angular.isUndefined(format)) {
-                 format = 'yyyy-MM-dd HH:mm:ss';
-             }
-             if(typeof date === 'string') {
-                 date = new Date(date);
-             }
-             return $filter('date')(date, format, '+0300');
-         }
+        if (typeof callback === 'function') {
+          callback(todayVisits);
+        } else {
+          $log.debug('No callback function has been passed');
+        }
+      }, errorCallback);
+    }
 
-         function clearFormFilledStatus() {
-             _.each($scope.formsFilledStatus, function(entry) {
-                 entry.filled = false;
-             });
-         }
+    //Format date
+    function getFormattedDate(date, format) {
+      if (angular.isUndefined(format)) {
+        format = 'yyyy-MM-dd HH:mm:ss';
+      }
 
-         function initializeCurrentVisit() {
-             return {
-                 ended: false,
-                 hasCompletedEncounters: false
-             };
-         }
+      if (typeof date === 'string') {
+        date = new Date(date);
+      }
+
+      return $filter('date')(date, format, '+0300');
+    }
+
+    function clearFormFilledStatus() {
+      _.each($scope.formsFilledStatus, function(entry) {
+        entry.filled = false;
+      });
+    }
+
+    function initializeCurrentVisit() {
+      return {
+        ended: false,
+        hasCompletedEncounters: false
+      };
+    }
   }
 })();
