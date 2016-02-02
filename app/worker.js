@@ -2,7 +2,7 @@
   'use strict';
 
   //replace array with pre-fetch-list surrounded by {} and run 'grunt pre-fetch' to regenerate array
-  var preFetchList = [];
+  var preFetchList = ['/bahmni/images/spinner.gif', '/scripts/formentry/formentry.module.js', '/scripts/formentry/controllers/formentry.controller.js', '/bahmni/home/index.html', '/scripts/formentry/services/formentry.service.js', '/bahmni/home/views/login.html', '/scripts/formentry/servicessearch-data.service.js', '/scripts/formentry/services/formsmetadata.service.js', '/scripts/formentry/services/form-validator.service.js', '/scripts/formentry/services/current-loaded-form.service.js', '/scripts/formentry/directives/error-summary-directive.js', '/scripts/formentry/directives/openmrs-forms.directive.js', '/scripts/openmrs-rest-services/concept.service.js', '/scripts/openmrs-rest-services/drug.service.js', '/scripts/openmrs-rest-services/encounter.service.js', '/scripts/openmrs-rest-services/location.service.js', '/scripts/openmrs-rest-services/obs.service.js', '/scripts/openmrs-rest-services/openmrs-form.service.js', '/scripts/openmrs-rest-services/identifier.service.js', '/scripts/openmrs-rest-services/openmrs-patient.service.js', '/scripts/openmrs-rest-services/openmrs-rest-services.module.js', '/scripts/openmrs-rest-services/openmrs-rest.service.js', '/scripts/openmrs-rest-services/openmrs-settings.service.js', '/scripts/openmrs-rest-services/person-attribute.service.js', '/scripts/openmrs-rest-services/provider.service.js', '/scripts/openmrs-rest-services/session.service.js', '/scripts/openmrs-rest-services/user.service.js', '/scripts/openmrs-rest-services/visit.service.js', '/scripts/openmrs-rest-services/user-default-properties.service.js'];
 
   var configs = [
         '/bahmni_config/openmrs/apps/customDisplayControl/js/customControl.js',
@@ -178,6 +178,7 @@
             '/bahmni/common/patient-search/init.js',
             '/bahmni/common/patient-search/controllers/patientsListController.js',
             '/bahmni/common/photo-capture/views/photo.html',
+
             // end of registration cache
         ],
         preFetchCompleteList = styles.concat(preFetchList.concat(configs.concat(modules.concat(globalProperty.concat(others.concat(rest))))));
