@@ -6,11 +6,12 @@
     .module('app.offline')
     .factory('OfflineService', OfflineService);
 
-  OfflineService.$inject = ['$rootScope', '$log'];
+  OfflineService.$inject = ['$rootScope', '$log', 'OpenmrsSettings'];
 
-  function OfflineService($rootScope, $log) {
+  function OfflineService($rootScope, $log, OpenmrsSettings) {
     var service;
     var offline = false;
+    var url = OpenmrsSettings.getCurrentRestUrlBase().trim();
 
     service = {
       checkStatus: checkStatus
@@ -21,7 +22,7 @@
         game: false,
         checkOnLoad: true,
         // checks: {xhr:{url:'https://test1.ampath.or.ke:8002'}}
-        checks: {xhr:{url:'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/session'}}
+        checks: {xhr:{url:url+'session'}}
     };
 
     Offline.on('up', function () {
