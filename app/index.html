@@ -2,41 +2,48 @@
 <html class="no-js">
 
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <!-- build:css(.) styles/vendor.css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/angular-loading/angular-loading.css" />
-  <!-- <link rel="stylesheet" href="bower_components/bootstrap-vertical-tabs/bootstrap.vertical-tabs.css"> -->
-  <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
-  <link rel="stylesheet" href="bower_components/angular-dialog-service/dist/dialogs.css" />
-  <link rel="stylesheet" href="bower_components/pivottable/dist/pivot.css" />
-  <link rel="stylesheet" href="bower_components/c3/c3.css" />
-  <link rel="stylesheet" href="bower_components/bootstrap-table/dist/bootstrap-table.min.css" />
-  <link rel="stylesheet" href="bower_components/bootstrap-table-fixed-columns/bootstrap-table-fixed-columns.css" />
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/calender.css">
-  <link rel="stylesheet" href="styles/medical-icons/wfmi-style.css">
-  <link rel="stylesheet" href="styles/ng-switcher.css">
-  <link rel="stylesheet" href="bower_components/offline/themes/offline-theme-default-indicator.css" />
-  <!--
-offline indicator Themes:
-<link rel="stylesheet" href="./themes/offline-theme-default.css" />
-<link rel="stylesheet" href="./themes/offline-theme-default-indicator.css" />
-<link rel="stylesheet" href="./themes/offline-theme-slide.css" />
-<link rel="stylesheet" href="./themes/offline-theme-slide-indicator.css" />
-<link rel="stylesheet" href="./themes/offline-theme-chrome.css" />
-<link rel="stylesheet" href="./themes/offline-theme-chrome-indicator.css" />
-<link rel="stylesheet" href="./themes/offline-theme-hubspot.css" />
--->
-  <!-- endbuild -->
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading/angular-loading.css" />
+    <!-- <link rel="stylesheet" href="bower_components/bootstrap-vertical-tabs/bootstrap.vertical-tabs.css"> -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+    <link rel="stylesheet" href="bower_components/angular-dialog-service/dist/dialogs.css" />
+    <link rel="stylesheet" href="bower_components/pivottable/dist/pivot.css" />
+    <link rel="stylesheet" href="bower_components/c3/c3.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-table/dist/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-table-fixed-columns/bootstrap-table-fixed-columns.css" />
+    <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="bower_components/morrisjs/morris.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" />
+    <link rel="stylesheet" href="bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/calender.css">
+    <link rel="stylesheet" href="styles/medical-icons/wfmi-style.css">
+    <link rel="stylesheet" href="styles/ng-switcher.css">
+    <link rel="stylesheet" href="bower_components/offline/themes/offline-theme-default-indicator.css" />
+    <!--
+  offline indicator Themes:
+  <link rel="stylesheet" href="./themes/offline-theme-default.css" />
+  <link rel="stylesheet" href="./themes/offline-theme-default-indicator.css" />
+  <link rel="stylesheet" href="./themes/offline-theme-slide.css" />
+  <link rel="stylesheet" href="./themes/offline-theme-slide-indicator.css" />
+  <link rel="stylesheet" href="./themes/offline-theme-chrome.css" />
+  <link rel="stylesheet" href="./themes/offline-theme-chrome-indicator.css" />
+  <link rel="stylesheet" href="./themes/offline-theme-hubspot.css" />
+  -->
+
+    <!-- endbuild -->
 </head>
 
 <body ng-app="ngAmrsApp">
@@ -78,70 +85,76 @@ offline indicator Themes:
     ga('send', 'pageview');
   </script>
 
-
-
-
-  <!-- build:js(.) scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="bower_components/angular-touch/angular-touch.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="bower_components/angular-base64/angular-base64.js"></script>
-  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="bower_components/api-check/dist/api-check.js"></script>
-  <script src="bower_components/angular-formly/dist/formly.js"></script>
-  <script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
-  <script src="bower_components/underscore/underscore.js"></script>
-  <script src="bower_components/underscore.string/dist/underscore.string.js"></script>
-  <script src="bower_components/angular-messages/angular-messages.js"></script>
-  <script src="bower_components/lodash/lodash.js"></script>
-  <script src="bower_components/restangular/dist/restangular.js"></script>
-  <script src="bower_components/angular-ui-select/dist/select.js"></script>
-  <script src="bower_components/datejs/build/production/date.min.js"></script>
-  <script src="bower_components/moment/moment.js"></script>
-  <script src="bower_components/angular-moment/angular-moment.js"></script>
-  <script src="bower_components/angular-translate/angular-translate.js"></script>
-  <script src="bower_components/angular-dialog-service/dist/dialogs.js"></script>
-  <script src="bower_components/angular-dialog-service/dist/dialogs-default-translations.js"></script>
-  <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.min.js"></script>
-  <script src="bower_components/spin.js/spin.js"></script>
-  <script src="bower_components/angular-loading/angular-loading.js"></script>
-  <script src="bower_components/ui-router-extras/release/ct-ui-router-extras.js"></script>
-  <script src="bower_components/karma-read-json/karma-read-json.js"></script>
-  <script src="bower_components/jqueryui/jquery-ui.js"></script>
-  <script src="bower_components/pivottable/dist/pivot.js"></script>
-  <script src="bower_components/pivottable/dist/c3_renderers.min.js"></script>
-  <script src="bower_components/pivottable/dist/gchart_renderers.min.js"></script>
-  <script src="bower_components/pivottable/dist/export_renderers.min.js"></script>
-  <script src="bower_components/d3/d3.js"></script>
-  <script src="bower_components/c3/c3.js"></script>
-  <script src="bower_components/jsnlog.js/jsnlog.js"></script>
-  <script src="bower_components/angular-environment/dist/angular-environment.js"></script>
-  <script src="bower_components/bootstrap-table/dist/bootstrap-table.min.js"></script>
-  <script src="bower_components/bootstrap-table/dist/extensions/angular/bootstrap-table-angular.min.js"></script>
-  <script src="bower_components/bootstrap-table/dist/extensions/export/bootstrap-table-export.js"></script>
-  <script src="bower_components/bootstrap-table/dist/extensions/multiple-sort/bootstrap-table-multiple-sort.js"></script>
-  <script src="bower_components/file-saver.js/FileSaver.js"></script>
-  <script src="bower_components/html2canvas/build/html2canvas.js"></script>
-  <script src="bower_components/jspdf/dist/jspdf.min.js"></script>
-  <script src="bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js"></script>
-  <script src="bower_components/tableExport.jquery.plugin/tableExport.min.js"></script>
-  <script src="bower_components/matchmedia/matchMedia.js"></script>
-  <script src="bower_components/ngSticky/lib/sticky.js"></script>
-  <script src="bower_components/pdfmake/build/pdfmake.js"></script>
-  <script src="bower_components/pdfmake/build/vfs_fonts.js"></script>
-  <script src="bower_components/bootstrap-table-fixed-columns/bootstrap-table-fixed-columns.js"></script>
-  <script src="bower_components/offline/offline.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-base64/angular-base64.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/api-check/dist/api-check.js"></script>
+    <script src="bower_components/angular-formly/dist/formly.js"></script>
+    <script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/underscore.string/dist/underscore.string.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="bower_components/datejs/build/production/date.min.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-dialog-service/dist/dialogs.js"></script>
+    <script src="bower_components/angular-dialog-service/dist/dialogs-default-translations.js"></script>
+    <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.min.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular-loading/angular-loading.js"></script>
+    <script src="bower_components/ui-router-extras/release/ct-ui-router-extras.js"></script>
+    <script src="bower_components/karma-read-json/karma-read-json.js"></script>
+    <script src="bower_components/jqueryui/jquery-ui.js"></script>
+    <script src="bower_components/pivottable/dist/pivot.js"></script>
+    <script src="bower_components/pivottable/dist/c3_renderers.min.js"></script>
+    <script src="bower_components/pivottable/dist/gchart_renderers.min.js"></script>
+    <script src="bower_components/pivottable/dist/export_renderers.min.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/c3/c3.js"></script>
+    <script src="bower_components/jsnlog.js/jsnlog.js"></script>
+    <script src="bower_components/angular-environment/dist/angular-environment.js"></script>
+    <script src="bower_components/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="bower_components/bootstrap-table/dist/extensions/angular/bootstrap-table-angular.min.js"></script>
+    <script src="bower_components/bootstrap-table/dist/extensions/export/bootstrap-table-export.js"></script>
+    <script src="bower_components/bootstrap-table/dist/extensions/multiple-sort/bootstrap-table-multiple-sort.js"></script>
+    <script src="bower_components/file-saver.js/FileSaver.js"></script>
+    <script src="bower_components/html2canvas/build/html2canvas.js"></script>
+    <script src="bower_components/jspdf/dist/jspdf.min.js"></script>
+    <script src="bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js"></script>
+    <script src="bower_components/tableExport.jquery.plugin/tableExport.min.js"></script>
+    <script src="bower_components/matchmedia/matchMedia.js"></script>
+    <script src="bower_components/ngSticky/lib/sticky.js"></script>
+    <script src="bower_components/pdfmake/build/pdfmake.js"></script>
+    <script src="bower_components/pdfmake/build/vfs_fonts.js"></script>
+    <script src="bower_components/bootstrap-table-fixed-columns/bootstrap-table-fixed-columns.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/flot/jquery.flot.js"></script>
+    <script src="bower_components/holderjs/holder.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+    <script src="bower_components/raphael/raphael.js"></script>
+    <script src="bower_components/mocha/mocha.js"></script>
+    <script src="bower_components/morrisjs/morris.js"></script>
+    <script src="bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+    <script src="bower_components/flot.tooltip/js/jquery.flot.tooltip.js"></script>
+    <script src="bower_components/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
+    <script src="bower_components/offline/offline.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <!-- Modules -->
