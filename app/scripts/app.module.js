@@ -30,7 +30,8 @@
       'app.utils',
       'app.logToServer',
       'ct.ui.router.extras',
-      'sticky'
+      'sticky',
+      'app.offline'
     ])
     .config(function($stateProvider, $stickyStateProvider, $urlRouterProvider) {
       $urlRouterProvider.otherwise('/');
