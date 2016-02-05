@@ -10,6 +10,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-loading/angular-loading.css" />
+    <link rel="stylesheet" href="bower_components/offline/themes/offline-theme-default-indicator.css" />
     <!-- <link rel="stylesheet" href="bower_components/bootstrap-vertical-tabs/bootstrap.vertical-tabs.css"> -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
@@ -31,7 +32,6 @@
     <link rel="stylesheet" href="styles/calender.css">
     <link rel="stylesheet" href="styles/medical-icons/wfmi-style.css">
     <link rel="stylesheet" href="styles/ng-switcher.css">
-    <link rel="stylesheet" href="bower_components/offline/themes/offline-theme-default-indicator.css" />
     <!--
   offline indicator Themes:
   <link rel="stylesheet" href="./themes/offline-theme-default.css" />
@@ -63,13 +63,11 @@
 
   <div class="navbar navbar-default navbar-fixed-bottom">
     <div class="footer container-fluid">
-      <span class="pull-right"><connectivity/> </span>
+      <span class="pull-left"><connectivity/> </span>
     </div>
 
-    <div class="navbar navbar-default navbar-fixed-bottom">
-      <div class="footer container-fluid">
-        <span class="pull-right"><version/> </span>
-      </div>
+    <div class="footer container-fluid">
+      <span class="pull-right"><version/> </span>
     </div>
   </div>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -206,6 +204,7 @@
   <script src="scripts/authentication/services/authentication-interceptor.service.js"></script>
   <script src="scripts/admin/services/moh-731-report.service.js"></script>
   <script src="scripts/offline/services/offline.service.js"></script>
+  <script src="scripts/offline/services/etloffline.service.js"></script>
   <!--models-->
   <script src="scripts/models/session.model.js"></script>
   <script src="scripts/models/patient.model.js"></script>
@@ -236,6 +235,7 @@
   <script src="scripts/main/directives/main-navigation.directive.js"></script>
   <script src="scripts/main/directives/version.directive.js"></script>
   <script src="scripts/main/directives/connectivity.directive.js"></script>
+  <script src="scripts/main/directives/etlconnectivity.directive.js"></script>
   <script src="scripts/patient-dashboard/directives/patient-demographics.directive.js"></script>
   <script src="scripts/patient-dashboard/directives/hiv-summary.directive.js"></script>
   <script src="scripts/patient-dashboard/directives/encounters.directive.js"></script>
