@@ -10,6 +10,17 @@
     <!-- build:css(.) styles/vendor.css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-loading/angular-loading.css" />
+    <link rel="stylesheet" href="bower_components/offline/themes/offline-theme-default-indicator.css" />
+     <!--
+   offline indicator Themes:
+   <link rel="stylesheet" href="./themes/offline-theme-default.css" />
+   <link rel="stylesheet" href="./themes/offline-theme-default-indicator.css" />
+   <link rel="stylesheet" href="./themes/offline-theme-slide.css" />
+   <link rel="stylesheet" href="./themes/offline-theme-slide-indicator.css" />
+   <link rel="stylesheet" href="./themes/offline-theme-chrome.css" />
+   <link rel="stylesheet" href="./themes/offline-theme-chrome-indicator.css" />
+   <link rel="stylesheet" href="./themes/offline-theme-hubspot.css" />
+   -->
     <!-- <link rel="stylesheet" href="bower_components/bootstrap-vertical-tabs/bootstrap.vertical-tabs.css"> -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
@@ -18,6 +29,12 @@
     <link rel="stylesheet" href="bower_components/c3/c3.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-table/dist/bootstrap-table.min.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-table-fixed-columns/bootstrap-table-fixed-columns.css" />
+    <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="bower_components/morrisjs/morris.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" />
+    <link rel="stylesheet" href="bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -46,13 +63,7 @@
     <div class="navbar navbar-default navbar-fixed-bottom">
         <div class="footer container-fluid">
             <span class="pull-right"><version/> </span>
-        </div>
-
-
-        <div class="navbar navbar-default navbar-fixed-bottom">
-            <div class="footer container-fluid">
-                <span class="pull-right"><version/> </span>
-            </div>
+            <span class="pull-left"><connectivity/> </span>
         </div>
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -126,6 +137,17 @@
     <script src="bower_components/pdfmake/build/pdfmake.js"></script>
     <script src="bower_components/pdfmake/build/vfs_fonts.js"></script>
     <script src="bower_components/bootstrap-table-fixed-columns/bootstrap-table-fixed-columns.js"></script>
+    <script src="bower_components/offline/offline.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/flot/jquery.flot.js"></script>
+    <script src="bower_components/holderjs/holder.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+    <script src="bower_components/raphael/raphael.js"></script>
+    <script src="bower_components/mocha/mocha.js"></script>
+    <script src="bower_components/morrisjs/morris.js"></script>
+    <script src="bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+    <script src="bower_components/flot.tooltip/js/jquery.flot.tooltip.js"></script>
+    <script src="bower_components/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -143,6 +165,7 @@
     <script src="scripts/clinic-dashboard/clinic-dashboard.module.js"></script>
     <script src="scripts/utils/utils.module.js"></script>
     <script src="scripts/admin/admin.module.js"></script>
+    <script src="scripts/offline/offline.module.js"></script>
     <script src="scripts/log-to-server/log-to-server.module.js"></script>
     <script src="scripts/data-analytics/data-analytics.module.js"></script>
 
@@ -178,6 +201,7 @@
     <script src="scripts/admin/services/hiv-monthly-summary-indicator.service.js"></script>
     <script src="scripts/authentication/services/authentication-interceptor.service.js"></script>
     <script src="scripts/admin/services/moh-731-report.service.js"></script>
+    <script src="scripts/offline/services/offline.service.js"></script>
     <!--models-->
     <script src="scripts/models/session.model.js"></script>
     <script src="scripts/models/patient.model.js"></script>
@@ -207,6 +231,7 @@
     <!-- directives -->
     <script src="scripts/main/directives/main-navigation.directive.js"></script>
     <script src="scripts/main/directives/version.directive.js"></script>
+    <script src="scripts/main/directives/connectivity.directive.js"></script>
     <script src="scripts/patient-dashboard/directives/patient-demographics.directive.js"></script>
     <script src="scripts/patient-dashboard/directives/hiv-summary.directive.js"></script>
     <script src="scripts/patient-dashboard/directives/encounters.directive.js"></script>
