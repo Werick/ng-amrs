@@ -307,6 +307,25 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069
 
         //   $scope.vm.originalTabs = angular.copy($scope.vm.form);
 
+        var encData;
+        var selectedForm; //= $stateParams.formuuid;
+
+        activate();
+        function activate() {
+          $timeout(function() {
+            var start = new Date().getTime();
+            FormentryService.getFormSchema('ampath_poc_adult_return_visit_form_v0.02', function(fschema){
+                selectedForm = fschema;
+                var formObject = FormEntry.createForm(selectedForm, $scope.vm.model);
+              newForm = formObject.formlyForm;
+              $log.debug('schema xxx', newForm);
+              $scope.vm.tabs = newForm;
+              $scope.vm.questionMap = formObject.questionMap;
+              console.log('final question map', $scope.vm.questionMap);
+            });
+          }, 1000);
+        }
+
           // function definition
           $scope.vm.onSubmit = function() {
             if($scope.vm.form.$valid) {
