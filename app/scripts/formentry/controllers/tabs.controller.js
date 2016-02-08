@@ -11,12 +11,12 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069
     tabCtrl.$inject = ['SearchDataService','$translate', 'dialogs',
         '$location', '$rootScope',  '$stateParams', '$state', '$scope',
         'FormentryService', 'OpenmrsRestService', '$timeout', 'FormsMetaData',
-        '$filter'
+        '$filter', 'FormEntry'
     ];
 
-    function tabCtrl(SearchDataService,$translate, dialogs, $location, 
-        $rootScope, $stateParams, $state, $scope, FormentryService, 
-        OpenmrsRestService, $timeout, FormsMetaData, $filter) {
+    function tabCtrl(SearchDataService,$translate, dialogs, $location,
+        $rootScope, $stateParams, $state, $scope, FormentryService,
+        OpenmrsRestService, $timeout, FormsMetaData, $filter, FormEntry) {
         function parseDate(value) {
             return $filter('date')(value || new Date(), 'yyyy-MM-dd HH:mm:ss', '+0300');
         }
@@ -226,14 +226,14 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069
     // var isLastTab = function() {
     //   return $scope.vm.currentTab === $scope.vm.tabs.length-1;
     // }
-    // 
+    //
     // var isFirstTab = function() {
     //   return $scope.vm.currentTab === 0;
     // }
-    // 
+    //
     // $scope.vm.isLastTab = isLastTab;
     // $scope.vm.isFirstTab = isFirstTab;
-    // 
+    //
     // $scope.vm.activateTab = function(button) {
     //   if(button === 'next')
     //   {
@@ -252,14 +252,14 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069
     //     }
     //   }
     // };
-    // 
+    //
     //   $scope.vm.tabs = [];
     //     $timeout(function () {
     //      FormentryService.getFormSchema('form1', function(schema){
     //       formSchema = schema;
     //       console.log('New Form Schema');
     //       console.log(formSchema);
-    // 
+    //
     //       FormentryService.createForm(formSchema, $scope.vm.model, function(formlySchema){
     //         $scope.vm.formlyFields = formlySchema;
     //         if(formlySchema.length>0)
@@ -277,7 +277,7 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069
     //             }
     //             i++;
     //           });
-    // 
+    //
     //         }
 
             // console.log('form ', $scope.vm.form)
@@ -302,7 +302,7 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069
             //  });
     //       });
     //      });
-       // 
+       //
     //    },1000);
 
         //   $scope.vm.originalTabs = angular.copy($scope.vm.form);

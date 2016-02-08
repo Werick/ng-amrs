@@ -18,7 +18,8 @@
             'dialogs.default-translations',
             'darthwade.dwLoading',
             'app.utils',
-            'sticky'
+            'sticky',
+            'openmrs.angularFormentry'
         ])
     .config(function($stateProvider) {
       $stateProvider
@@ -41,7 +42,8 @@
           data: { requireLogin: true }
         });
     })
-    .run(function(formlyConfig, formlyValidationMessages, formlyApiCheck) {
+    .run(function(formlyConfig, formlyValidationMessages, formlyApiCheck, FormentryConfig) {
+      FormentryConfig.setOpenmrsBaseUrl('https://amrs.ampath.or.ke/amrs/ws/rest/v1/');
       formlyConfig.extras.errorExistsAndShouldBeVisibleExpression = 'fc.$touched || form.$submitted';
       formlyValidationMessages.addStringMessage('required', 'This field is required');
       formlyValidationMessages.addTemplateOptionValueMessage('max', 'max', 'The max value allowed is ', '', 'Too Big');
@@ -73,7 +75,7 @@
           templateUrl: 'error-messages.html'
         });
     })
-  .config(['dialogsProvider','$translateProvider', function(dialogsProvider,$translateProvider) {
+  .config(['dialogsProvider','$translateProvider', 'FormentryConfigProvider',  function(dialogsProvider,$translateProvider) {
     dialogsProvider.useBackdrop('static');
 		dialogsProvider.useEscClose(false);
 		dialogsProvider.useCopy(false);
