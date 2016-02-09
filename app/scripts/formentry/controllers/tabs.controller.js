@@ -317,8 +317,8 @@ jshint -W098, -W003, -W068, -W004, -W033, -W030, -W117, -W069
             FormentryService.getFormSchema('ampath_poc_adult_return_visit_form_v0.02', function(fschema){
                 selectedForm = fschema;
                 var formObject = FormEntry.createForm(selectedForm, $scope.vm.model);
-              newForm = formObject.formlyForm;
-              $log.debug('schema xxx', newForm);
+              var newForm = formObject.formlyForm;
+              // $log.debug('schema xxx', newForm);
               $scope.vm.tabs = newForm;
               $scope.vm.questionMap = formObject.questionMap;
               console.log('final question map', $scope.vm.questionMap);
