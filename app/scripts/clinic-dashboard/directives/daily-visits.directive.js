@@ -154,6 +154,8 @@
 
                 }
             }
+            console.info('selected view', $scope.currentView)
+            loadSchedule();
         }
 
         function onViewDayAppointmentBroadcast(event, arg) {
@@ -229,12 +231,14 @@
         //Pagination Params 4 getDailyNotReturnedVisits
         $scope.dailyNotReturnedVisitsNextIndex = 0;
         $scope.allDataLoaded4DailyNotReturnedVisits = false;
+
         function loadSchedule(loadNextOffset) {
+
 
             if ($scope.isBusy === true || $scope.isBusyVisits)
                 return;
-            $scope.isBusy = true;
-            $scope.isBusyVisits = true;
+
+
             if(loadNextOffset!==true)resetPaging('attended');
             if(loadNextOffset!==true)resetPaging('appointments');
             if(loadNextOffset!==true)resetPaging('not-returned');
@@ -242,24 +246,53 @@
             $scope.experiencedVisitsLoadingError = false;
 
             if ($scope.locationUuid && $scope.locationUuid !== '') {
-                //Fetch Daily visits
-                EtlRestService.getDailyVisits($scope.locationUuid,
-                        moment($scope.startDate).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
-                        moment($scope.startDate).endOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
-                        onFetchDailyVisitsSuccess, onFetchDailyVisitsFailed, $scope.dailyVisitsNextIndex, 300);
+              //fetch  specific state
+              console.info('Load schedule called', $scope.currentView);
+              switch ($scope.currentView.trim()) {
+                case 'Not Returned':{
+                  //Fetch Daily not  returned patients.as
+                  if(_.isUndefined($scope.customPatientsNotReturned)) {
+                      $scope.isBusy = true;
+                    EtlRestService.getDailyNotReturnedVisits($scope.locationUuid,
+                            moment($scope.startDate).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
+                            moment($scope.startDate).endOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
+                            onFetchDailyNotReturnedVisitsSuccess, onFetchDailyNotReturnedVisitsFailed, $scope.dailyNotReturnedVisitsNextIndex, 300);
+                  }
+                  break;
+                }
+                case 'Visit':{
+                  //Fetch Daily visits
+                  if (_.isUndefined($scope.customPatients)) {
+                    $scope.isBusyVisits = true;
+                    $scope.isBusy = true;
+                    EtlRestService.getDailyVisits($scope.locationUuid,
+                            moment($scope.startDate).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
+                            moment($scope.startDate).endOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
+                            onFetchDailyVisitsSuccess, onFetchDailyVisitsFailed, $scope.dailyVisitsNextIndex, 300);
+                  }
 
-                //Fetch daily appointments
-                EtlRestService.getAppointmentSchedule($scope.locationUuid,
-                        moment($scope.startDate).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
-                        moment($scope.startDate).endOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
-                        onFetchAppointmentsScheduleSuccess, onFetchAppointmentScheduleFailed, $scope.appointmentScheduleNextIndex, 300);
-
-                //Fetch Daily not  returned patients.as
-                EtlRestService.getDailyNotReturnedVisits($scope.locationUuid,
-                        moment($scope.startDate).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
-                        moment($scope.startDate).endOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
-                        onFetchDailyNotReturnedVisitsSuccess, onFetchDailyNotReturnedVisitsFailed, $scope.dailyNotReturnedVisitsNextIndex, 300);
-
+                  break;
+                }
+                case 'Appointments':{
+                  //Fetch daily appointments
+                  if(_.isUndefined($scope.customAppointmentPatients)) {
+                    $scope.isBusy = true;
+                    EtlRestService.getAppointmentSchedule($scope.locationUuid,
+                            moment($scope.startDate).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
+                            moment($scope.startDate).endOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
+                            onFetchAppointmentsScheduleSuccess, onFetchAppointmentScheduleFailed, $scope.appointmentScheduleNextIndex, 300);
+                  }
+                  break;
+                }
+                // default:{
+                //   $scope.isBusy = true;
+                //   //Fetch daily appointments
+                //   EtlRestService.getAppointmentSchedule($scope.locationUuid,
+                //           moment($scope.startDate).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
+                //           moment($scope.startDate).endOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
+                //           onFetchAppointmentsScheduleSuccess, onFetchAppointmentScheduleFailed, $scope.appointmentScheduleNextIndex, 300);
+                // }
+              }
             }
 
         }
@@ -269,7 +302,7 @@
             if ($scope.isBusy === true || $scope.isBusyVisits)
                 return;
             $scope.isBusy = true;
-            $scope.isBusyVisits = true;
+
             resetPaging('attended');
             resetPaging('appointments');
             resetPaging('not-returned');
@@ -291,6 +324,7 @@
                     }
                     case 'attended':
                     {
+                      $scope.isBusyVisits = true;
                         EtlRestService.getDailyVisits($scope.locationUuid,
                                 moment($scope.startDate).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ'),
                                 moment($scope.startDate).endOf('day').format('YYYY-MM-DDTHH:mm:ss.SSSZZ',
@@ -344,6 +378,7 @@
             });
 
             $scope.isBusy = false;
+            $scope.isBusyVisits = false;
         }
 
         function onFetchAppointmentScheduleFailed(error) {
@@ -377,6 +412,7 @@
             });
 
             $scope.isBusyVisits = false;
+            $scope.isBusy = false;
         }
 
         function onFetchDailyVisitsFailed(error) {
@@ -411,6 +447,7 @@
             });
 
             $scope.isBusyVisits = false;
+            $scope.isBusy = false;
         }
 
         function onFetchDailyNotReturnedVisitsFailed(error) {
