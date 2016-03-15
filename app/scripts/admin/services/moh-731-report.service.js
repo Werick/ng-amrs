@@ -108,9 +108,9 @@
     var reportSectionsKeys = [
       ['HIV Exposed Infant (within 2 months)',
         'HIV_Exposed_Infant',
-        'On_CTX_Below_15_yrs',
-        'On_CTX_15_yrs_and_Older',
-        'Total on CTX (Sum HV03-03 TO HV03-06)'
+        'on_pcp_prophylaxis_below_15',
+        'on_pcp_prophylaxis_15_and_above',
+        'on_pcp_prophylaxis'
       ],
       ['Enrolled in Care',
         'enrolled_in_care_males_lt_one',
